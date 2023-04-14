@@ -1,9 +1,14 @@
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Cast from './Cast/Cast';
 import Header from './Header/Header';
-import Home from './Home/Home';
+import Layout from './Layout/Layout';
+// import Home from './Home/Home';
 import MovieDetails from "./Movie'sDetails/Details";
 import NotFound from './NotFound/NotFound';
+import Reviews from './Reviews/Reviews';
+
+const Home = lazy(() => import('./Home/Home'));
 
 export const App = () => {
   return (
@@ -11,12 +16,16 @@ export const App = () => {
       <Header />
       <div>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<p>Movies</p>}></Route>
-          <Route path="/movies/:movieId" element={<MovieDetails />}>
-            <Route path="cast" element={<Cast />} />
+          <Route path="/" element={<Layout />}>
+            <Route path="/goit-react-hw-05-movies" element={<Home />}></Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/movies" element={<p>Movies</p>}></Route>
+            <Route path="/movies/:movieId" element={<MovieDetails />}>
+              <Route path="cast" element={<Cast />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
           </Route>
-          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </>
