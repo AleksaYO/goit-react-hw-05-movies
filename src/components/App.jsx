@@ -7,6 +7,7 @@ import Layout from './Layout/Layout';
 import MovieDetails from "./Movie'sDetails/Details";
 import NotFound from './NotFound/NotFound';
 import Reviews from './Reviews/Reviews';
+import Movies from './Movies/Movies';
 
 const Home = lazy(() => import('./Home/Home'));
 
@@ -19,7 +20,7 @@ export const App = () => {
           <Route path="/" element={<Layout />}>
             <Route path="/goit-react-hw-05-movies" element={<Home />}></Route>
             <Route path="/" element={<Home />} />
-            <Route path="/movies" element={<p>Movies</p>}></Route>
+            <Route path="/movies" element={<Movies />}></Route>
             <Route path="/movies/:movieId" element={<MovieDetails />}>
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
