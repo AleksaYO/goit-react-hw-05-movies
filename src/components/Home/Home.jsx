@@ -1,4 +1,4 @@
-import { trendList } from 'Api/trendApi';
+import { trendList } from '../Api/searchMovieApi';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 

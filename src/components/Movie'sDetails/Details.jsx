@@ -1,10 +1,11 @@
-import details from 'Api/detailsApi';
-import { useEffect, useState } from 'react';
+import { details } from '../Api/searchMovieApi';
+import { useEffect, useRef, useState } from 'react';
 import { useParams, Outlet, Link, useLocation } from 'react-router-dom';
 const BASE_URL = 'http://image.tmdb.org/t/p/w500';
 
 const MovieDetails = () => {
   const location = useLocation();
+  const locationBefore = useRef(location.state?.from ?? '/');
 
   const [movie, setMovie] = useState([]);
   const { movieId } = useParams();
@@ -14,7 +15,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Link to={location.state.from}>Go Back</Link>
+      <Link to={locationBefore.current}>Go Back</Link>
       {movie.poster_path && (
         <div>
           <img src={BASE_URL + movie.poster_path} alt="" />

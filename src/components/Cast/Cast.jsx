@@ -2,7 +2,8 @@
 // import { useEffect, useState } from 'react';
 // import { useParams } from 'react-router-dom';
 
-import CastList from 'Api/castApi';
+// import CastList from 'Api/castApi';
+import { CastList } from '../Api/searchMovieApi';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -17,7 +18,6 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    // console.log(actors.cast), (<p>12313123</p>)
     actors.cast && (
       <>
         <p>Additional information: </p>
