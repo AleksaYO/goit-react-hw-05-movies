@@ -25,6 +25,7 @@ const Movies = () => {
   useEffect(() => {
     const localMovies = localStorage.getItem('movies');
     const parcedMovies = JSON.parse(localMovies);
+    if (!parcedMovies) return;
     setMovies(parcedMovies);
   }, []);
 
